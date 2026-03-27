@@ -1,0 +1,229 @@
+:root {
+  --bg-color: #f0f0f0;
+  --text-color: #333;
+  --board-bg: #fff;
+  --board-border: #ccc;
+  --snake-head: #2E7D32;
+  --snake-body: #4CAF50;
+  --food-color: #F44336;
+  --overlay-bg: rgba(255, 255, 255, 0.8);
+  --btn-bg: #2196F3;
+  --btn-text: #fff;
+  --btn-hover: #1976D2;
+}
+
+.dark-theme {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --board-bg: #1e1e1e;
+  --board-border: #333;
+  --snake-head: #66BB6A;
+  --snake-body: #81C784;
+  --food-color: #E57373;
+  --overlay-bg: rgba(0, 0, 0, 0.8);
+  --btn-bg: #1976D2;
+  --btn-text: #fff;
+  --btn-hover: #1565C0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.theme-toggle:hover {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.board-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1 / 1;
+  background-color: var(--board-bg);
+  border: 2px solid var(--board-border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  touch-action: none; /* Prevent scrolling when swiping */
+}
+
+.game-board {
+  display: grid;
+  width: 100%;
+  height: 100%;
+}
+
+.cell {
+  width: 100%;
+  height: 100%;
+}
+
+.snake-head {
+  background-color: var(--snake-head);
+  border-radius: 4px;
+}
+
+.snake-body {
+  background-color: var(--snake-body);
+  border-radius: 2px;
+  border: 1px solid var(--board-bg);
+}
+
+.food {
+  background-color: var(--food-color);
+  border-radius: 50%;
+  transform: scale(0.8);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.overlay h2 {
+  margin: 0 0 20px 0;
+  font-size: 2rem;
+}
+
+.btn {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: var(--btn-hover);
+}
+
+.mobile-controls {
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+  width: 200px;
+}
+
+.mobile-controls button {
+  background-color: var(--board-bg);
+  border: 1px solid var(--board-border);
+  color: var(--text-color);
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.mobile-controls button:active {
+  background-color: var(--board-border);
+}
+
+.control-up { grid-column: 2; }
+.control-left { grid-column: 1; }
+.control-down { grid-column: 2; }
+.control-right { grid-column: 3; }
+
+@media (max-width: 768px) {
+  .mobile-controls {
+    display: grid;
+  }
+}
+
+.ai-enhancements {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: var(--board-bg);
+  border-radius: 8px;
+  border: 1px solid var(--board-border);
+  width: 100%;
+  max-width: 600px;
+}
+
+.ai-enhancements h3 {
+  margin-top: 0;
+}
+
+.ai-enhancements ul {
+  padding-left: 20px;
+  margin-bottom: 0;
+}
+.ai-enhancements li {
+  margin-bottom: 10px;
+}

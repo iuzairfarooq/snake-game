@@ -1,0 +1,5 @@
+{
+  "name": "Snake Game",
+  "description": "A classic Snake Game built with React and plain CSS.",
+  "requestFramePermissions": []
+}
